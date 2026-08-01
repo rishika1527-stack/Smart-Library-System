@@ -1,0 +1,67 @@
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Due Dates</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <h1>⏰ Due Dates</h1>
+
+    <table border="1" cellpadding="10" cellspacing="0"
+           style="margin:auto; width:80%; background:white;">
+
+        <tr>
+            <th>Book Title</th>
+            <th>Due Date</th>
+            <th>Status</th>
+            <th>Fine</th>
+        </tr>
+
+        {% for book in due_books %}
+
+        <tr {% if book.status == 'Overdue' %}
+                style="background:#ffdddd;"
+            {% endif %}>
+
+            <td>{{ book.title }}</td>
+
+            <td>{{ book.due_date }}</td>
+
+            <td>
+                {% if book.status == 'Overdue' %}
+                    <span style="color:red; font-weight:bold;">
+                        Overdue
+                    </span>
+                {% else %}
+                    <span style="color:green; font-weight:bold;">
+                        On Time
+                    </span>
+                {% endif %}
+            </td>
+
+            <td>₹{{ book.fine }}</td>
+
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+    <br>
+
+    <a href="/student" class="btn">
+        Back to Dashboard
+    </a>
+
+</div>
+
+</body>
+</html>
+```

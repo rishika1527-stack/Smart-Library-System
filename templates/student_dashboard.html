@@ -1,0 +1,45 @@
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Dashboard</title>
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <h1>🎓 Student Dashboard</h1>
+
+    <p>Welcome to Smart Library</p>
+
+    <div class="dashboard-cards">
+
+        <a href="/borrowed_books" class="dashboard-card">
+            <div style="font-size:40px;">📚</div>
+            <h3>Books Borrowed</h3>
+        </a>
+
+        <a href="/seats" class="dashboard-card">
+            <div style="font-size:40px;">💺</div>
+            <h3>Seats Available</h3>
+        </a>
+
+        <a href="/due_dates" class="dashboard-card">
+            <div style="font-size:40px;">⏰</div>
+            <h3>Due Dates</h3>
+        </a>
+
+    </div>
+
+    <br>
+
+    <a href="/logout" class="btn">Logout</a>
+
+</div>
+
+</body>
+</html>
+```

@@ -1,0 +1,78 @@
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Seats Available</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <h1>💺 Library Seat Availability</h1>
+
+    <div class="stats-container">
+
+        <div class="stat-box">
+            <h1>{{ total_seats }}</h1>
+            <p>Total Seats</p>
+        </div>
+
+        <div class="stat-box">
+            <h1>{{ occupied_seats }}</h1>
+            <p>Occupied Seats</p>
+        </div>
+
+        <div class="stat-box">
+            <h1>{{ available_seats }}</h1>
+            <p>Available Seats</p>
+        </div>
+
+    </div>
+
+    <h2 style="margin-top:40px;">Seat Details</h2>
+
+    <table border="1" cellpadding="10" cellspacing="0"
+           style="margin:auto; width:70%; background:white;">
+
+        <tr>
+            <th>Seat Number</th>
+            <th>Status</th>
+        </tr>
+
+        {% for seat in seats_data %}
+
+        <tr>
+            <td>{{ seat[1] }}</td>
+
+            <td>
+                {% if seat[2] == 'Available' %}
+                    <span style="color:green; font-weight:bold;">
+                        Available
+                    </span>
+                {% else %}
+                    <span style="color:red; font-weight:bold;">
+                        Occupied
+                    </span>
+                {% endif %}
+            </td>
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+    <br>
+
+    <a href="/student" class="btn">
+        Back to Dashboard
+    </a>
+
+</div>
+
+</body>
+</html>
+```

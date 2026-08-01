@@ -1,0 +1,39 @@
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Borrowed Books</title>
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <h1>📚 Borrowed Books</h1>
+
+    <table border="1" cellpadding="10" cellspacing="0" style="margin:auto;">
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Category</th>
+        </tr>
+
+        {% for book in books %}
+        <tr>
+            <td>{{ book[1] }}</td>
+            <td>{{ book[2] }}</td>
+            <td>{{ book[3] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <br>
+    <a href="/student" class="btn">Back to Dashboard</a>
+
+</div>
+
+</body>
+</html>
+```

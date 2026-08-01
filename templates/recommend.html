@@ -1,0 +1,48 @@
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Book Recommendation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<div class="login-container">
+
+    <h2>🤖 AI Book Recommendation</h2>
+
+    <form method="POST">
+
+        <input type="text"
+               name="interest"
+               placeholder="Enter your interest (Python, AI, History...)" required>
+
+        <button type="submit" class="btn">
+            Get Recommendation
+        </button>
+
+    </form>
+
+    {% if books %}
+
+        <h3 style="margin-top:30px;">Recommended Books</h3>
+
+        <ul style="text-align:left; margin-top:20px;">
+
+        {% for book in books %}
+
+            <li>
+                <strong>{{ book[1] }}</strong> - {{ book[2] }}
+            </li>
+
+        {% endfor %}
+
+        </ul>
+
+    {% endif %}
+
+</div>
+
+</body>
+</html>
+```

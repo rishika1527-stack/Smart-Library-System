@@ -1,0 +1,49 @@
+<h1>📚 Library Books</h1>
+
+<form method="GET" action="/view_books" style="margin-bottom:20px;">
+
+    <input type="text"
+           name="search"
+           placeholder="Search by title"
+           value="{{ search }}"
+           style="padding:10px; width:250px;">
+
+    <button type="submit" class="btn">
+        Search
+    </button>
+
+</form>
+
+<table border="1" cellpadding="10" cellspacing="0" style="margin:auto;">
+
+<tr>
+    <th>ID</th>
+    <th>Title</th>
+    <th>Author</th>
+    <th>Category</th>
+    <th>Available</th>
+    <th>Action</th>
+</tr>
+
+{% for book in books %}
+<tr>
+    <td>{{ book[0] }}</td>
+    <td>{{ book[1] }}</td>
+    <td>{{ book[2] }}</td>
+    <td>{{ book[3] }}</td>
+    <td>{{ book[4] }}</td>
+
+    <td>
+        <a href="/edit_book/{{ book[0] }}">Edit</a> |
+        <a href="/delete_book/{{ book[0] }}">Delete</a>
+        
+        {% if book[4] == 'Yes' %}
+            <a href="/borrow_book/{{ book[0] }}">Borrow</a>
+        {% else %}
+            <a href="/return_book/{{ book[0] }}">Return</a>
+        {% endif %}
+    </td>
+</tr>
+{% endfor %}
+
+</table>

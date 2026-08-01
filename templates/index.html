@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Library Management System</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="logo">📚 Smart Library</div>
+
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/view_books">Books</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/login">Login</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+
+        <h1>SMART LIBRARY MANAGEMENT SYSTEM</h1>
+
+        <p>
+            AI Powered Digital Library for Students
+        </p>
+
+        <div class="buttons">
+            <a href="/login" class="btn">Student Login</a>
+            <a href="/login" class="btn">Admin Login</a>
+        </div>
+
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+
+        <h2>Our Smart Features</h2>
+
+        <div class="feature-container">
+
+            <div class="card">
+                <h3>📚 Smart Book Search</h3>
+                <p>Search books instantly using title, author, or category.</p>
+            </div>
+
+            <div class="card">
+                <h3>💺 Seat Availability</h3>
+                <p>Check available library seats in real time.</p>
+            </div>
+
+            <div class="card">
+                <h3>🤖 AI Recommendations</h3>
+                <p>Get personalized book suggestions based on your interests.</p>
+            </div>
+
+            <div class="card">
+                <h3>📊 Admin Dashboard</h3>
+                <p>Manage books, students, and library analytics.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Statistics Section -->
+    <section class="stats">
+
+        <h2>Library Statistics</h2>
+
+        <div class="stats-container">
+
+            <div class="stat-box">
+                <h1>10,000+</h1>
+                <p>Books</p>
+            </div>
+
+            <div class="stat-box">
+                <h1>5,000+</h1>
+                <p>Students</p>
+            </div>
+
+            <div class="stat-box">
+                <h1>500+</h1>
+                <p>Seats</p>
+            </div>
+
+            <div class="stat-box">
+                <h1>24/7</h1>
+                <p>Library Access</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+</html>

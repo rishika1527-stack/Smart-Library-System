@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <h1>👨‍💼 Admin Dashboard</h1>
+    
+    <a href="/logout" class="btn" style="float:right; margin-top:-20px;">Logout</a>
+
+    <p>Library Administration Panel</p>
+
+    <p>Library Administration Panel</p>
+    <div class="stats-container">
+
+    <div class="stat-box">
+        <h1>{{ total_books }}</h1>
+        <p>Total Books</p>
+    </div>
+
+    <div class="stat-box">
+        <h1>{{ available_books }}</h1>
+        <p>Available Books</p>
+    </div>
+
+    <div class="stat-box">
+        <h1>{{ borrowed_books }}</h1>
+        <p>Borrowed Books</p>
+    </div>
+
+    <div class="dashboard-cards">
+
+        <a href="/add_book" class="dashboard-card">
+        <div style="font-size:40px;">➕</div>
+        <h3>Add Book</h3>
+    </a>
+
+    <a href="/view_books" class="dashboard-card">
+        <div style="font-size:40px;">📚</div>
+        <h3>View Books</h3>
+    </a>
+
+    <a href="/view_books" class="dashboard-card">
+        <div style="font-size:40px;">✏️</div>
+        <h3>Edit Books</h3>
+    </a>
+
+    <a href="/view_books" class="dashboard-card">
+        <div style="font-size:40px;">🗑️</div>
+        <h3>Delete Books</h3>
+    </a>
+
+    <a href="/recommend" class="dashboard-card">
+        <div style="font-size:40px;">🤖</div>
+        <h3>AI Recommend</h3>
+    </a>
+
+    <a href="/view_contacts" class="dashboard-card">
+        <div style="font-size:40px;">📩</div>
+        <h3>View Contacts</h3>
+    </a>
+
+</div>
+
+</div>
+
+</body>
+</html>

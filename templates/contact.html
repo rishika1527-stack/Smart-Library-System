@@ -1,0 +1,61 @@
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contact Us</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<div class="login-container">
+
+    <h2>📞 Contact Us</h2>
+
+    <form method="POST">
+
+        <input type="text"
+               name="name"
+               placeholder="Enter your name"
+               required>
+
+        <input type="email"
+               name="email"
+               placeholder="Enter your email"
+               required>
+
+        <textarea name="message"
+                  placeholder="Enter your message"
+                  rows="5"
+                  style="width:100%; padding:15px; border-radius:8px; margin-top:15px;"
+                  required></textarea>
+
+        <button type="submit" class="btn">
+            Send Message
+        </button>
+
+    </form>
+
+    {% if success %}
+
+        <p style="color:green; margin-top:20px;">
+            ✅ Message sent successfully!
+        </p>
+
+    {% endif %}
+
+    <a href="/"
+       class="btn"
+       style="margin-top:20px; display:inline-block;">
+
+       Back to Home
+
+    </a>
+
+</div>
+
+</body>
+</html>
+```
