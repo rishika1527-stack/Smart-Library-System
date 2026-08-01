@@ -3,6 +3,49 @@ from datetime import datetime, timedelta
 import sqlite3
 
 app = Flask(__name__)
+
+def init_db():
+    connection = sqlite3.connect("library.db")
+    cursor = connection.cursor()
+
+    cursor.execute(
+        """
+        CREATE TABLE IF NOT EXISTS books(
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            title TEXT,
+            author TEXT,
+            category TEXT,
+            available TEXT,
+            due_date TEXT
+        )
+        """
+    )
+
+    cursor.execute(
+        """
+        CREATE TABLE IF NOT EXISTS contacts(
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            name TEXT,
+            email TEXT,
+            message TEXT
+        )
+        """
+    )
+
+    cursor.execute(
+        """
+        CREATE TABLE IF NOT EXISTS seats(
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            seat_number TEXT,
+            status TEXT
+        )
+        """
+    )
+
+    connection.commit()
+    connection.close()
+
+init_db()
 app.secret_key = "rishika_secret_key"
 
 # Home Page
@@ -397,5 +440,8 @@ def borrowed_books():
     return render_template("borrowed_books.html", books=books)
 
 # Run Flask App
+import os
+
 if __name__ == "__main__":
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
